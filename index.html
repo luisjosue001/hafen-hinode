@@ -1,1 +1,333 @@
-<h1> hola mundo </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexa Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            background: linear-gradient(45deg, #F60331, #084184, #A3E601, #CACACA);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideInFromTop 1s ease-in-out;
+        }
+        @keyframes slideInFromTop {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .section {
+            padding: 50px;
+            background-color: transparent;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInSection 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .home-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .home-content {
+            max-width: 500px;
+        }
+        .home-content h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .home-content p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #6c63ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .home-image img, .about-image img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid #6c63ff;
+           
+        }
+
+        .about-content {
+            text-align:justify;
+        
+        }
+
+
+
+
+        .skills-section, .services-section {
+            text-align: center;
+        }
+        .skills-section h2, .services-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .skills-container, .services-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .skill-card, .service-card {
+            background-color: #1e1e1e;
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+        }
+        .skill-card:hover, .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .skill-card img, .service-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .skill-card p, .service-card p {
+            margin: 0;
+        }
+        .service-card .info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            transition: height 0.3s;
+        }
+        .service-card:hover .info {
+            height: 100%;
+        }
+        .service-card .info h3, .service-card .info p {
+            margin: 5px 0;
+        }
+        footer {
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #00c8ff;
+            text-decoration: none;
+            font-size: 1.5em;
+            padding: 10px 15px;
+            border: 2px solid #00c8ff;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .social-links a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .contact-info {
+            margin: 20px 0;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" class="home-section section">
+        <div class="home-content">
+            <h1>HOLA, soy Josue Luis</h1>
+            <p>Soy un estudiante de sistemas informáticos con habilidades en herramientas digitales, programación, IA, mantenimiento de sistemas informáticos y edición de video. Me apasiona la tecnología y siempre busco nuevos desafíos para seguir creciendo profesionalmente.</p>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+        <div class="home-image">
+            <img src="file:///C:/Users/PC/Downloads/IMG_9303.webp" alt="Excel Logo">
+        </div>
+    </section>
+    <section id="about" class="about-section section">
+        <div class="about-content">
+            <h2>Sobre Mí</h2>
+            <p>Soy un estudiante de sistemas informáticos con una amplia gama de habilidades y conocimientos en diversas áreas tecnológicas. Mi experiencia incluye:</p>
+            <ul>
+                <li>Herramientas digitales</li>
+                <li>Programación</li>
+                <li>Inteligencia Artificial</li>
+                <li>Mantenimiento de sistemas informáticos</li>
+                <li>Edición de video</li>
+                <li>Y más...</li>
+            </ul>
+            <p>Me apasiona la tecnología y siempre estoy en busca de nuevos desafíos para seguir creciendo y mejorando mis habilidades. Mi objetivo es contribuir significativamente en proyectos innovadores y tecnológicos.</p>
+        </div>
+    </section>
+    <section id="skills" class="skills-section section">
+        <h2>Mis Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Microsoft_Word_2013-2019_logo.svg/1024px-Microsoft_Word_2013-2019_logo.svg.png" alt="Word">
+                <p>Word</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/2048px-Adobe_Premiere_Pro_CC_icon.svg.png" alt="Adobe Premiere">
+                <p>Adobe Premiere</p>
+            </div>
+            <div class="skill-card">
+                <img src="file:///C:/Users/PC/Downloads/png-transparent-microsoft-excel-course-visual-basic-for-applications-student-microsoft-class-rectangle-logo.png" alt="Excel">
+                <p>Excel</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                <p>GitHub</p>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="services-section section">
+        <h2>Mis Servicios</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webstorm/webstorm-original.svg" alt="Web Development">
+                <div class="info">
+                    <h3>Desarrollo Web</h3>
+                    <p>Creación de sitios web y aplicaciones web modernas.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Development">
+                <div class="info">
+                    <h3>Desarrollo Python</h3>
+                    <p>Desarrollo de aplicaciones y scripts en Python.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/artificialintelligence/artificialintelligence-original.svg" alt="Artificial Intelligence">
+                <div class="info">
+                    <h3>Inteligencia Artificial</h3>
+                    <p>Implementación de soluciones basadas en IA y aprendizaje automático.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="System Maintenance">
+                <div class="info">
+                    <h3>Mantenimiento de Sistemas</h3>
+                    <p>Mantenimiento y soporte técnico de sistemas informáticos.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" alt="Video Editing">
+                <div class="info">
+                    <h3>Edición de Video</h3>
+                    <p>Servicios de edición de video para proyectos diversos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <h2>Contáctame</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/" target="_blank">Instagram</a>
+            <a href="https://twitter.com/" target="_blank">X</a>
+            <a href="https://github.com/luisjosue001" target="_blank">GITHUB</a>
+        </div>
+        <div class="contact-info">
+            <p>josueluislariosgomez8@gmail.com</p>
+            <p>Teléfono: +503 7062 2539</p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
+
